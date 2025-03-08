@@ -605,27 +605,44 @@
              Надеюсь, что этот материал заставит задуматься и сделать правильный выбор в пользу вашего здорового будущего.</p>
         
              <div class="vidos">
-                <iframe width="560" height="315" 
+                <iframe class="video-frame" width="560" height="315" 
                     src="https://www.youtube.com/embed/sVfPGllpOTc" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allowfullscreen 
+                    onerror="showLocalVideo(this, 'my.mp4')">
                 </iframe><br>
             
-                <iframe width="560" height="315" 
+                <iframe class="video-frame" width="560" height="315" 
                     src="https://www.youtube.com/embed/MG52aw2hoWI" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allowfullscreen 
+                    onerror="showLocalVideo(this, 'nauchpok.mp4')">
                 </iframe>
             
-                <iframe width="560" height="315" 
+                <iframe class="video-frame" width="560" height="315" 
                     src="https://www.youtube.com/embed/vBlORTyA0UY" 
                     frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
-                    allowfullscreen>
+                    allowfullscreen 
+                    onerror="showLocalVideo(this, 'scammers.mp4')">
                 </iframe>
             </div>
+            
+            <script>
+                function showLocalVideo(iframe, videoSrc) {
+                    let video = document.createElement("video");
+                    video.width = 560;
+                    video.height = 315;
+                    video.controls = true;
+                    
+                    let source = document.createElement("source");
+                    source.src = videoSrc;
+                    source.type = "video/mp4";
+            
+                    video.appendChild(source);
+                    iframe.parentNode.replaceChild(video, iframe);
+                }
+            </script>
+            
             
     </div>
 
