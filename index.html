@@ -1,0 +1,707 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Хватит курить!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Raleway', sans-serif;
+            font-size: 18px;
+            background: linear-gradient(135deg, #017ad5,#083988);
+            color: white;
+        }
+        .intro {
+            position: relative;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            background: url('ab1.jpg') center/cover no-repeat;
+        }
+
+        .intro h1, .intro .scroll-down {
+            position: relative;
+            z-index: 2;
+        }
+        .intro h1 {
+            font-size: 3em;
+        }
+        .scroll-down {
+            font-size: 1.5em;
+            margin-top: 20px;
+            animation: bounce 1.5s infinite;
+            cursor: pointer;
+        }
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(10px); }
+        }
+        .container {
+            max-width: 70%;
+            margin: auto;
+            padding: 20px;
+            text-align: center;
+        }
+        .nav {
+            position: absolute;
+            width: 100%;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 10px 0;
+            transition: all 0.3s ease-in-out;
+        }
+        .nav.fixed {
+            position: fixed;
+            top: 0;
+            left: 0;
+            background: rgba(30, 41, 59, 0.9);
+            z-index: 1000;
+        }
+        .btn {
+            display: inline-block;
+            background: #FACC15;
+            color: #1E293B;
+            padding: 15px 30px;
+            margin: 10px;
+            border-radius: 10px;
+            font-size: 1.2em;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .section {
+            margin-top: 100px;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            margin-top: 50px;
+        }
+
+        .fact-box {
+            background: rgba(255, 255, 255, 0.2);
+        padding: 15px;
+        margin: 40px 0;
+        border-radius: 10px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        min-height: 30px;
+        max-width: 55%;
+        transition: transform 0.3s ease-in-out;
+
+    }
+
+    .fact-box:hover {
+        transform: translateY(-5px);
+    }
+
+
+
+.carousel-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    position: relative;
+    width: 120%;
+    margin: 20px 0;
+}
+.carousel {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+    max-width: 120%;
+    border-radius: 8px;
+}
+.carousel-small {
+    max-width: 70%;
+}
+.carousel-large {
+    max-width: 95%;
+}
+.prev, .next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+
+.fact-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(255, 255, 255, 0.2);
+    max-width: 50%;
+    min-height: 100px;
+    transition: transform 0.3s ease-in-out;
+}
+
+.fact-box:hover {
+    transform: translateY(-5px);
+}
+
+.fact-image {
+    width: 80px; /* Размер можно изменить */
+    height: 80px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-right: 15px;
+}
+
+.fact-box:nth-child(odd) {
+    text-align: center;
+    margin-right: auto;
+    flex-direction: row;
+}
+
+.fact-box:nth-child(even) {
+    text-align: center;
+    margin-left: auto;
+    flex-direction: row-reverse;
+}
+
+.fact-box p {
+    flex: 1;
+}
+
+
+.survey-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+    color: #f8f8f8; /* Светло-серый, чтобы читался лучше */
+}
+
+
+.gif-container {
+    position: absolute;
+    top: 130px; /* Отступ сверху */
+    right: 220px; /* Отступ справа */
+    width: 170px; /* Размеры можно менять */
+    height: auto;
+}
+
+
+.gif-container2 {
+    position: absolute;
+    top: 2600px; /* Отступ сверху */
+    right: 100px; /* Отступ справа */
+    width: 200px; /* Размеры можно менять */
+    height: auto;
+}
+
+
+.gif-container3 {
+    position: absolute;
+    top: 1600px; /* Отступ сверху */
+    right: 1600px; /* Отступ справа */
+    width: 200px; /* Размеры можно менять */
+    height: auto;
+}
+
+.gif-container4 {
+    position: absolute;
+    top: 4100px; /* Отступ сверху */
+    right: 1625px; /* Отступ справа */
+    width: 180px; /* Размеры можно менять */
+    height: auto;
+}
+
+.gif-container5 {
+    position: absolute;
+    top: 4500px; /* Отступ сверху */
+    right: 80px; /* Отступ справа */
+    width: 180px; /* Размеры можно менять */
+    height: auto;
+}
+
+.gif-container img {
+    width: 100%; /* Чтобы GIF вписывался в контейнер */
+    height: auto;
+    border-radius: 10px; /* Скругление углов для эстетики */
+    
+}
+
+.carousel {
+    position: relative;
+    width: 50%;
+    max-width: 800px;
+    margin: 0 auto;
+    overflow: hidden;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+    
+.carousel-images {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.carousel-images img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 100%;
+    object-fit: contain;
+}
+
+.carousel img {
+    width: 100%;
+    flex-shrink: 0;
+}
+
+.carousel-buttons {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel-buttons button {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: white;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    border-radius: 50%;
+    transition: background-color 0.3s ease;
+}
+
+.carousel-buttons button:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+
+        
+
+
+@media (min-width: 1024px) and (aspect-ratio: 3/4), 
+       (max-width: 1200px) and (max-height: 1365px) { /* Для 3:4 и меньше */
+
+        body {
+            font-size: 16px;
+        }
+
+        .intro {
+            background: url('abb1.jpg') center/cover no-repeat;
+        }
+
+        
+        .carousel {
+            position: relative;
+            width: 70%;
+            max-width: 800px;
+            margin: 0 auto;
+            overflow: hidden;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+
+        .gif-container {
+        top: 90px; /* Отступ сверху */
+        right: 50px; /* Отступ справа */
+        }
+
+
+        .gif-container2 {
+        top: 2600px; /* Отступ сверху */
+        right: 5px; /* Отступ справа */
+        }
+
+
+        .gif-container3 {
+        top: 1330px; /* Отступ сверху */
+        right: 800px; /* Отступ справа */
+        }
+
+        .gif-container4 {
+        top: 4100px; /* Отступ сверху */
+        right: 830px; /* Отступ справа */
+        }
+
+        .gif-container5 {
+        top: 4500px; /* Отступ сверху */
+        right: 5px; /* Отступ справа */
+        }
+
+
+
+    }
+
+
+
+
+    @media (max-width: 768px) { /* Для телефонов */
+    body {
+        font-size: 16px;
+    }
+
+    .intro {
+        background: url('abb2.jpg') center/cover no-repeat;
+    }
+    .intro h1 {
+        font-size: 2em;
+        padding: 0 10px;
+    }
+
+    .scroll-down {
+        font-size: 1.2em;
+    }
+
+    .container {
+        max-width: 90%;
+        padding: 15px;
+    }
+
+    .btn {
+        padding: 8px 20x;
+        font-size: 0.9em;
+    }
+    .nav {
+        gap: 5px;
+    }
+
+    .fact-box {
+        max-width: 100%;
+        flex-direction: column;
+        text-align: center;
+        padding: 15px;
+    }
+
+    .fact-image {
+        width: 60px;
+        height: 60px;
+        margin-bottom: 10px;
+    }
+
+    .gif-container,
+    .gif-container2,
+    .gif-container3,
+    .gif-container4,
+    .gif-container5 {
+        display: flex; /* Используем flexbox */
+        justify-content: center; /* Центрируем по горизонтали */
+        align-items: center; /* Центрируем по вертикали (если нужно) */
+        width: 50%; /* Чтобы контейнер занимал всю ширину */
+        margin: 10px 0;
+        position: relative; /* Убираем absolute, чтобы не уезжало */
+        right: auto;
+        top: auto;
+    }
+
+    .gif-container img,
+    .gif-container2 img,
+    .gif-container3 img,
+    .gif-container4 img,
+    .gif-container5 img {
+        width: 60%;
+        max-width: 150px; /* Чтобы не были огромными */
+        height: auto;
+        border-radius: 10px;
+    }
+
+    .carousel {
+        width: 100%;
+    }
+
+    .prev, .next {
+        padding: 8px;
+    }
+
+    .survey-box {
+        padding: 15px;
+    }
+
+    .vidos iframe {
+        width: 75vw; /* 50% от ширины экрана */
+        height: auto;
+    }
+
+    .gif-container2 { left: 25%;}
+    .gif-container3 { visibility: hidden; }
+    .gif-container4 {visibility: hidden;}
+    .gif-container5 { left: 25%;}
+}
+
+
+
+
+
+    </style>
+<body>
+    <div class="intro">
+        <div class="gif-container">
+            <img src="4x.webp" alt="Анимация">
+        </div>
+        
+        
+
+        <h1>Курение — не модно, а опасно!</h1>
+        <p class="scroll-down" onclick="scrollToNav()">▼ Листать вниз ▼</p>
+    </div>
+    
+    <div class="nav" id="navbar">
+        <div class="container">
+            <a href="#facts" class="btn" onclick="smoothScroll(event, 'facts')">Факты</a>
+            <a href="#stats" class="btn" onclick="smoothScroll(event, 'stats')">Статистика</a>
+            <a href="#videos" class="btn" onclick="smoothScroll(event, 'videos')">Видео</a>
+            <a href="#advice" class="btn" onclick="smoothScroll(event, 'advice')">Советы</a>
+        </div>
+    </div>
+    
+    <div id="facts" class="container section">
+        <h2>Факты о вреде никотина</h2>
+        
+        <div class="fact-box">
+            
+            Курение приводит к развитию хронических болезней лёгких, 
+            включая хроническую обструктивную болезнь лёгких (ХОБЛ). Оно также повышает вероятность возникновения онкологических заболеваний, особенно рака лёгких, гортани и ротовой полости.</div>
+        
+        <div class="fact-box">Пассивное курение также наносит значительный вред здоровью, 
+            увеличивая риск заболеваний дыхательных путей и сердечно-сосудистой системы у некурящих.</div>
+        
+        <div class="fact-box">По данным ВОЗ, ежегодно от болезней, связанных с курением, умирает более 8 миллионов человек, 
+            из которых около 1,2 миллиона — жертвы пассивного курения.</div>
+        
+        <div class="fact-box">Отказ от курения приводит к значительным улучшениям в здоровье. 
+            Уже через 20 минут после отказа от сигарет нормализуется сердечный ритм, 
+            а через год риск сердечно-сосудистых заболеваний снижается вдвое. 
+            Через 10 лет вероятность рака лёгких сокращается в два раза по сравнению с курильщиками.</div>
+
+    </div>
+    <div class="gif-container2">
+        <img src="note.gif" alt="Анимация">
+    </div>
+
+
+    <div class="gif-container3">
+        <img src="krut.webp" alt="Анимация">
+    </div>
+
+    
+
+    
+
+
+    <div id="stats" class="container section">
+        <h2>Анкетирование и статистика</h2>
+        <p>В ходе работы над своим проектом я провел опрос среди одноклассников по позапрошлогоднему продукту проекта (видеоролика) на тему 
+            "Влияние видеоролика о вреде никотина для подростков".</p><br><br>
+        
+            <div class="survey-box">
+                <h3>Анкета на тему «Влияние видеоролика о вреде никотина для подростков»</h3>
+        
+                <p>1. Смотрели ли вы мой информационный видеоролик о вреде курения?</p>
+                <p>А) Да</p>
+                <p>Б) Нет</p>
+        
+                <p>2. Узнали ли вы что-то новое о вреде никотина из видеоролика?</p>
+                <p>А) Да</p>
+                <p>Б) Нет</p>
+        
+                <p>3. Заставил ли вас ролик задуматься о вреде курения?</p>
+                <p>А) Да</p>
+                <p>Б) Нет</p>
+        
+                <p>4. Планируете ли вы после просмотра ролика отказаться от курения (если курите) или не начинать (если не курите)?</p>
+                <p>А) Да, отказался(ась) от курения</p>
+                <p>Б) Да, не начну курить</p>
+                <p>В) Нет, мое мнение не изменилось</p>
+        
+                <p>5. Посоветовали бы вы этот видеоролик друзьям?</p>
+                <p>А) Да</p>
+                <p>Б) Нет</p>
+        
+                <p>6. Как вы в целом оцениваете влияние ролика на ваше отношение к курению?</p>
+                <p>А) Существенно изменило мое мнение</p>
+                <p>Б) Немного повлияло</p>
+                <p>В) Не изменило мое мнение</p>
+        
+                <p>7. Какие вредные вещества, содержащиеся в никотиновых изделиях, вам известны?</p>
+                <p>А) Только никотин</p>
+                <p>Б) Никотин и другие вещества (смолы, канцерогены и др.)</p>
+                <p>В) Не знаю</p>
+            </div>
+        <br><br><br>
+        <p> Увидев результаты анкетирования я провел его анализ. Вы можете посмотреть, 
+            повлиял ли на них поучительный видеоролик о вреде курения и для скольки подростков эта проблема все еще актуальна. </p>
+
+
+        <!-- Первая карусель (Анкетирование) -->
+        <div class="carousel">
+            <div class="carousel-images" id="surveyCarousel">
+                <img src="s1.jpg">
+                <img src="s2.jpg">
+                <img src="s3.jpg">
+                <img src="s4.jpg">
+                <img src="s5.jpg">
+                <img src="s6.jpg">
+                <img src="s7.jpg">
+            </div>
+            <div class="carousel-buttons">
+                <button class="prev" onclick="moveSlide(-1, 'surveyCarousel')">&#10094;</button>
+                <button class="next" onclick="moveSlide(1, 'surveyCarousel')">&#10095;</button>
+            </div>
+        </div>
+        
+        
+    </div>
+    
+    <script>
+        function moveSlide(direction, carouselId) {
+            const carousel = document.getElementById(carouselId);
+            const images = carousel.getElementsByTagName('img');
+            const totalImages = images.length;
+            let currentIndex = 0;
+    
+            function updateSlide() {
+                carousel.style.transform = `translateX(-${currentIndex * 100}%)`;
+            }
+    
+            if (!carousel.dataset.index) {
+                carousel.dataset.index = "0";
+            }
+            currentIndex = parseInt(carousel.dataset.index);
+    
+            currentIndex = (direction === -1) 
+                ? (currentIndex === 0 ? totalImages - 1 : currentIndex - 1) 
+                : (currentIndex === totalImages - 1 ? 0 : currentIndex + 1);
+    
+            carousel.dataset.index = currentIndex;
+            updateSlide();
+        }
+    </script>
+
+    
+    
+    
+    <div id="videos" class="container section">
+        <h2>Видео</h2>
+        <p>В этих видео представлена информация о вреде курения, его последствиях для здоровья и жизни подростков.<br><br> 
+            Также советую ознакомиться с моим видеороликом (первым из списка), который был создан в рамках моего проекта в позапрошлом году с целью повлиять на молодежь и 
+            помочь им осознанно отказаться от никотиновой зависимости. В нем раскрываются реальные факты, последствия для организма.
+             Надеюсь, что этот материал заставит задуматься и сделать правильный выбор в пользу вашего здорового будущего.</p>
+        
+        <div class="vidos">
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/sVfPGllpOTc" frameborder="0" allowfullscreen></iframe><br>
+
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/MG52aw2hoWI" frameborder="0" allowfullscreen></iframe>
+        
+        <iframe width="560" height="315" src="https://www.youtube.com/embed/vBlORTyA0UY" frameborder="0" allowfullscreen></iframe>
+        </div>
+    </div>
+
+
+    <div class="gif-container5">
+        <img src="ez.webp" alt="Анимация">
+    </div>
+    
+    <div class="gif-container4">
+        <img src="cena.webp" alt="Анимация">
+    </div>
+
+    <div id="advice" class="container section">
+        <h2>Советы</h2>
+        
+        <p>
+            Бросить курить — это не просто избавиться от привычки, а полностью изменить свой образ жизни. 
+            Важно понять, что никотиновая зависимость затрагивает не только физиологию, но и психику, 
+            поэтому подготовка должна быть всесторонней. Начните с мотивации: найдите вескую причину, ради которой 
+            вы готовы пройти этот путь. Это может быть здоровье, семья, спорт или даже простое желание доказать себе, 
+            что вы сильнее зависимости. Зафиксируйте свою цель письменно, ведите дневник прогресса и отмечайте даже маленькие победы.
+        </p>
+        
+        <h3>Что поможет справиться с тягой к курению:</h3>
+
+        <div class="fact-box">
+            <img src="hm.webp" class="fact-image">
+            вместо сигареты выпейте стакан воды, пожуйте жвачку или возьмите в руки что-то, что займёт пальцы. <strong>Заменяйте привычку: </strong> </div> 
+
+        <div class="fact-box">
+            <img src="psih.webp" class="fact-image">
+            <strong>Избегайте триггеров:</strong> постарайтесь не находиться в компаниях, где курят, и не держите сигареты под рукой.
+        </div>
+        
+        <div class="fact-box">
+            <img src="aktiv.webp" class="fact-image">
+             занимайтесь спортом, больше гуляйте — физическая нагрузка помогает организму быстрее очищаться. <strong>Будьте активны: </strong>
+        </div>
+        
+        <div class="fact-box">
+            <img src="umni.webp" class="fact-image">
+            <strong>Используйте техники осознанности:</strong> глубокое дыхание, медитация или просто концентрация на ощущениях помогут отвлечься.
+        </div>
+        
+        <div class="fact-box">
+            <img src="yabloko.webp" class="fact-image">
+            расскажите друзьям или семье о своём решении, чтобы они могли вас поддержать. В сложных случаях можно обратиться к специалисту. <strong>Обратитесь за поддержкой: </strong>
+        </div>
+        
+        <div class="fact-box">
+            <img src="grusni.webp" class="fact-image">
+            <strong>Не сдавайтесь при срывах:</strong> даже если вы сорвались, это не значит, что всё потеряно. Просто продолжайте путь и делайте выводы из ошибок.
+        </div>
+        <br>
+        
+        <p><strong>Главное – помнить, что каждая попытка делает вас ближе к свободе от никотина.</strong></p>
+        <p>Всё в твоих руках!</p>
+
+        <div >
+            <img src="love.webp" alt="Анимация">
+        </div>
+        
+    </div>
+    
+    <footer>
+        
+        <p>Контакты: <a href="mailto:wowaus2000@mail.ru" class="email">wowaus2000@mail.ru</a> | Telegram: <a href="https://t.me/vlaaddiikk" target="_blank">@vlaaddiikk</a></p>
+    </footer>
+    
+    <script>
+        function scrollToNav() {
+            document.getElementById("navbar").scrollIntoView({ behavior: 'smooth' });
+        }
+        
+        const navbar = document.getElementById("navbar");
+        const navOffset = navbar.offsetTop;
+        const navHeight = navbar.offsetHeight;
+        
+        window.addEventListener("scroll", function() {
+            if (window.scrollY >= navOffset) {
+                navbar.classList.add("fixed");
+            } else {
+                navbar.classList.remove("fixed");
+            }
+        });
+        
+        function smoothScroll(event, targetId) {
+            event.preventDefault();
+            const targetElement = document.getElementById(targetId);
+            const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY - navHeight;
+            window.scrollTo({ top: targetPosition, behavior: "smooth" });
+        }
+    </script>
+</body>
+</html>
