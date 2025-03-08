@@ -1,1 +1,1 @@
-# hvatitkurit
+open index.html
