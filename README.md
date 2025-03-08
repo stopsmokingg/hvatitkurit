@@ -1,1 +1,1 @@
-open(FDSFSDF.html)
+open index.html
